@@ -1,0 +1,1 @@
+export const containerMap = document.querySelector('.game');

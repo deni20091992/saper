@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-size: 100%;
+    font-family: 'digital';
+}
+
+aside {
+    display: flex;
+    margin: auto;
+}
+
+.params {
+    display: flex;
+}
+
+.new-game {
+    display: flex;
+}
+.own-game{
+    visibility: hidden ;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+}
+.own-game p {
+    margin: 20px;
+}
+#row, #col, #mines {
+    height: 20px;
+    width: 70px;
+    margin: 5px;
+}
+
+.start-game, .start-game-own, #own-game {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 2px;
+    background: rgba(200, 200, 200, 0.8);
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 0.1vh solid #100021;
+    border-right: 0.4vh solid #100021;
+    border-top: none;
+    border-left: none;
+    box-shadow: 0 0.7vw 0.5vw rgba(0, 0, 0, 0.6);
+    width: 150px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.start-game:hover, .start-game-own:hover {
+    box-sizing: border-box;
+    cursor: pointer;
+    background: rgba(200, 200, 200, 1);
+}
+
+.start-game:active, .start-game-own:active {
+    border-top: 0.2vh solid #100021;
+    border-right: 0.3vh solid #100021;
+    border-bottom: 0.2vh solid #100021;
+    border-left: 0.1vh solid #100021;
+    margin: 1px 2px;
+}
+
+.records {
+    overflow: auto;
+    height: 530px;
+}
+
+.table-records {
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+    border: #100021 solid 2px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.table-records td {
+    border: #a3a3a3 solid 1px;
+}
+
+.game-form {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    margin: auto 60px;
+    background: #ebebeb;
+    border-right: #000000 solid 3px;
+    border-bottom: #000000 solid 3px;
+    border-top: #ffffff solid 3px;
+    border-left: #ffffff solid 3px;
+    align-self: center;
+    background: rgba(200, 200, 200, 0.8);
+    cursor: pointer;
+}
+
+.stopwatch-smiley {
+    display: flex;
+    justify-content: center;
+}
+
+#smiley {
+    width: 50px;
+    background: url("../img/slightly-smiling-face_1f642.png") no-repeat center;
+    background-size: cover;
+}
+
+.stopwatch, .mines, #bombs-left {
+    color: red;
+    font-weight: 900;
+    margin: 10px 10px 10px 20px;
+    font-size: 35px;
+    width: 60px;
+    float: left;
+}
+
+.game {
+    border: #ffffff solid 3px;
+}
+
+.row {
+    display: block;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.cell {
+    display: inline-block;
+    border-right: #a3a3a3 solid 3px;
+    border-bottom: #a3a3a3 solid 3px;
+    border-top: #ffffff solid 3px;
+    border-left: #ffffff solid 3px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    transition: 500ms;
+    font-weight: bold;
+    text-align: center;
+    background: #ebebeb;
+}
+
+.cell[data-status="mine"]::before {
+    content: '💥';
+}
+
+.cell[data-status="bomb"]::before {
+    content: '💣';
+}
+
+.cell[data-status="clear"] {
+    background: #888888;
+    border: 3px solid gray;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cell[data-status="flag"]::before {
+    content: '🚩';
+    font-size: 17px;
+}
+
+@font-face {
+    font-family: 'digital';
+    src: url(../fonts/DS-DIGI.TTF);
+}

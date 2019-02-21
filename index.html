@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saper</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/modal.css">
+</head>
+<body>
+<div class="game-left">
+    <aside>
+        <div class="toggle-button-menu"><img src="img/icons8-меню-52.png"></div>
+        <div class="game-params">
+            <div class="params">
+                <div class="modal" id="modal-menu">
+                    <div class="start-game" data-rows="10" data-cols="10" data-bombs="10">Easy
+                    </div>
+                    <div class="start-game" data-rows="16" data-cols="16" data-bombs="40">Medium
+                    </div>
+                    <div class="start-game" data-rows="16" data-cols="25" data-bombs="100">Hard
+                    </div>
+                    <div id="open-own-game" class="start-game-own" data-rows="10" data-cols="10" data-bombs="10">Own-game
+                    </div>
+                    <div class="toggle-button" id="centered-toggle-button">Records</div>
+                </div>
+                </div>
+            <div class="own-game">
+                <p>Width<input type="number" value="10" min="1" max="100" id="col"></p>
+                <p>Height<input type="number" value="10" min="1" max="100" id="row"></p>
+                <p>Mines<input type="number" value="10" min="1" max="100" id="bombs"></p>
+                <button id="own-game">Start game</button>
+            </div>
+        </div>
+    </aside>
+    <div class="game-form">
+        <div class="stopwatch-smiley">
+            <div id="bombs-left">0</div>
+            <div id="smiley"></div>
+            <div id ='timer' class="stopwatch">0.000</div>
+        </div>
+        <div class="game"></div>
+    </div></div>
+<div class="modal" id="modal">
+    <h2>Table of records</h2>
+    <div id = "records" class="records"></div>
+    <div class="actions">
+        <button class="toggle-button">OK</button>
+    </div>
+</div>
+</body>
+<script type="module" src="./module/script.js"></script>
+</html>
