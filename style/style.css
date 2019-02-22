@@ -18,16 +18,19 @@ aside {
 .new-game {
     display: flex;
 }
-.own-game{
-    visibility: hidden ;
+
+.own-game {
+    visibility: hidden;
     justify-content: center;
     display: flex;
     align-items: center;
     font-family: Arial;
 }
+
 .own-game p {
     margin: 20px;
 }
+
 #row, #col, #mines {
     height: 20px;
     width: 70px;
