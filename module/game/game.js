@@ -3,16 +3,17 @@ import {youLoser} from "../records/gameOver.js";
 import {containerTime, containerMap, containerBombs} from "./configGame.js";
 
 export class Game {
-    constructor(){
+    constructor() {
         this.isActive = true;
         this.numberClick = 0;
     }
-    placeBombs(cell){
+
+    placeBombs(cell) {
         let remainingBombs = this.bombs;
         while (remainingBombs > 0) {
-            let rowRandom = parseInt(Math.random()*this.rows-0.0001);
-            let colRandom = parseInt(Math.random()*this.cols-0.0001);
-            if (!this.map[rowRandom][colRandom].hasBomb && this.map[cell.row][cell.col] !==this.map[rowRandom][colRandom]) {
+            let rowRandom = parseInt(Math.random() * this.rows - 0.0001);
+            let colRandom = parseInt(Math.random() * this.cols - 0.0001);
+            if (!this.map[rowRandom][colRandom].hasBomb && this.map[cell.row][cell.col] !== this.map[rowRandom][colRandom]) {
                 this.map[rowRandom][colRandom].hasBomb = true;
                 remainingBombs--;
             }
@@ -20,24 +21,28 @@ export class Game {
     }
 
     open(cell) {
-        this.openFlags();
-        if (this.numberClick === 0){
-            this.placeBombs(cell);
-        }
-        if (timer == '0' && this.isActive ===true) {
-            timer = new Date().getTime();
-        }
-        if (!this.isActive) return;
-        if (cell.status === 'clear') return;
         let cellHtml = containerMap.children[cell.row].children[cell.col];
-        this.numberClick++;
-        if (cell.hasBomb) {
-            this.map[cell.row][cell.col].hasBomb = false;
-            cellHtml.dataset.status ='clear';
-            this.openBombs();
-            cellHtml.dataset.status = 'mine';
-            this.gameOver();
-            return;
+        this.openFlags();
+        switch (true) {
+            case (this.numberClick === 0):
+                this.placeBombs(cell);
+                this.numberClick++;
+                timer = new Date().getTime();
+                break;
+            case (!this.isActive):
+                return;
+                break;
+            case (cell.status === 'clear'):
+                return;
+                break;
+            case (cell.hasBomb):
+                this.map[cell.row][cell.col].hasBomb = false;
+                cellHtml.dataset.status = 'clear';
+                this.openBombs();
+                cellHtml.dataset.status = 'mine';
+                this.gameOver();
+                return;
+                break;
         }
 
         let number = this.calcBombsAround(cell);
@@ -102,7 +107,8 @@ export class Game {
         } else if (cell.status === 'flag') {
             cell.status = 'default';
             this.openFlags();
-        } cellHtml.dataset.status = cell.status;
+        }
+        cellHtml.dataset.status = cell.status;
     }
 
     checkWin() {
@@ -120,7 +126,7 @@ export class Game {
 
     gameOver() {
         this.isActive = false;
-        timer =0;
+        timer = 0;
         youLoser();
     }
 }

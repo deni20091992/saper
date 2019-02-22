@@ -1,9 +1,13 @@
 import {containerTime, sortTime, containerSmiley} from "./recordConst.js";
+
 let tableRecords = [];
+
 export function setTableRecords() {
     containerSmiley.style.backgroundImage = 'url("img/smiling-face-with-sunglasses_1f60e.png")';
-    let youName = prompt('Поздравляем вы виграли', 'User');
-    if (youName == null){return}
+    let youName = prompt('Поздравляем вы выиграли', 'User');
+    if (youName == null) {
+        return
+    }
     let user = {};
     user.name = `${youName}`;
     user.time = `${containerTime.innerHTML}`;
@@ -17,10 +21,10 @@ export function setTableRecords() {
 
 function writeRecords() {
     let table = document.createElement("table");
-    table.className = ("table-records");
     let thNum = document.createElement('th');
     let thName = document.createElement('th');
     let thTime = document.createElement('th');
+    table.className = ("table-records");
     thNum.innerText = '№';
     thName.innerText = 'Логин';
     thTime.innerText = 'Время';
@@ -31,7 +35,7 @@ function writeRecords() {
     for (let i = 0; i < tableRecords.length; i++) {
         let tr = document.createElement("tr");
         let tdNum = document.createElement("td");
-        tdNum.innerText = i+1;
+        tdNum.innerText = i + 1;
         let tdName = document.createElement("td");
         tdName.innerText = tableRecords[i].name;
         let tdTime = document.createElement("td");

@@ -3,11 +3,11 @@ import {buttonsMenu, modalMenu, records, modalRecords} from "./configModalWindow
 buttonsMenu.addEventListener('click', openMenu);
 
 export function openMenu() {
-  modalMenu.classList.toggle("off");
+    modalMenu.classList.toggle("off");
 }
 
-[].forEach.call(records, function(event) {
-  event.addEventListener("click", function() {
-    modalRecords.classList.toggle("off");
-  })
+[].forEach.call(records, function (event) {
+    event.addEventListener("click", function () {
+        modalRecords.classList.toggle("off");
+    })
 });

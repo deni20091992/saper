@@ -2,10 +2,10 @@ import {Cell} from "../ceil/ceil.js";
 import {Game} from "../game/game.js";
 import {containerMap} from "./configMap.js";
 
-export class Map extends Game{
-    constructor(rows, cols, bombs){
+export class Map extends Game {
+    constructor(rows, cols, bombs) {
         super();
-        this.bombs =bombs
+        this.bombs = bombs
         this.rows = rows;
         this.cols = cols;
     }

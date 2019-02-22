@@ -18,6 +18,7 @@ containerStartGame.forEach(x => x.onclick = function () {
 
 containerStartOwnGame.addEventListener('click', ownGame);
 containerOpenOwnGame.addEventListener('click', openOwnGame);
+
 function ownGame() {
     let map = new Map(ownRows, ownCols, ownBombs);
     map.generateMap();
