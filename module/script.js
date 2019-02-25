@@ -16,11 +16,13 @@ containerStartGame.forEach(x => x.onclick = function () {
     map.openFlags();
 });
 
-containerStartOwnGame.addEventListener('click', ownGame);
-containerOpenOwnGame.addEventListener('click', openOwnGame);
+
 
 function ownGame() {
-    let map = new Map(ownRows, ownCols, ownBombs);
+    let map = new Map(ownRows.value, ownCols.value, ownBombs.value);
     map.generateMap();
     map.openFlags();
 }
+
+containerStartOwnGame.addEventListener('click', ownGame);
+containerOpenOwnGame.addEventListener('click', openOwnGame);

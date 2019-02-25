@@ -53,7 +53,6 @@ function saveLocal() {
 }
 
 export let downloadLocal = function () {
-    console.log(tableRecords);
     if (localStorage.getItem('todo') != undefined) {
         tableRecords = JSON.parse(localStorage.getItem('todo'));
         writeRecords();

@@ -11,14 +11,6 @@ aside {
     margin: auto;
 }
 
-.params {
-    display: flex;
-}
-
-.new-game {
-    display: flex;
-}
-
 .own-game {
     visibility: hidden;
     justify-content: center;
